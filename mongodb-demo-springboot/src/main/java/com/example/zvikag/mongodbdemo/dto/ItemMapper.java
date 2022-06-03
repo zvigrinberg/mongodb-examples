@@ -5,16 +5,16 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper
+@Mapper(componentModel =  "spring")
 public interface ItemMapper {
     @Mappings({
-       @Mapping(target="id", source="itemSource.itemId"),
-       @Mapping(target="desc", source="itemSource.description"),
-       @Mapping(target="theType", source="itemSource.type"),
-       @Mapping(target="itemPrice", source="itemSource.price"),
-       @Mapping(target="additionalAttributes", source="itemSource.properties")
+       @Mapping(target="id", source="item.itemId"),
+       @Mapping(target="desc", source="item.description"),
+       @Mapping(target="theType", source="item.type"),
+       @Mapping(target="itemPrice", source="item.price"),
+       @Mapping(target="additionalAttributes", source="item.properties")
     })
-    ItemDto sourceToDestination(Item itemSource);
+    ItemDto sourceToDestination(Item item);
 
     @Mappings({
        @Mapping(source="itemDest.id", target="itemId"),
